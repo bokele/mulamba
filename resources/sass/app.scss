@@ -1,0 +1,84 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+// @import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css");
+// @import url("https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css");
+// @import url("https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap4.min.css");
+
+// Variables
+@import "variables";
+$fa-font-path: "../webfonts";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+@import "~admin-lte/dist/css/adminlte.css";
+@import "~admin-lte/plugins/summernote/summernote-bs4.min.css";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+.btn-outline-orange:hover {
+    color: #fff;
+    background-color: #f03c02;
+    border-color: #f03c02;
+}
+
+.btn-outline-orange {
+    color: #f03c02;
+    border-color: #f03c02;
+}
+
+.btn-outline-purple:hover {
+    color: #fff;
+    background-color: #9561e2;
+    border-color: #9561e2;
+}
+.badge-purple {
+    color: #fff;
+    background-color: #9561e2;
+}
+a.badge-purple,
+a.badge-purple:focus {
+    color: #fff;
+    background-color: #f03c02;
+}
+.badge-orange {
+    color: #fff;
+    background-color: #f03c02;
+}
+a.badge-orange,
+a.badge-orange:focus {
+    color: #fff;
+    background-color: #f03c02;
+}
+
+.btn-outline-purple {
+    color: #9561e2;
+    border-color: #9561e2;
+}
+
+.btn-purple {
+    color: #fff;
+    background-color: #9561e2;
+    border-color: #9561e2;
+}
+
+.btn-purple:hover {
+    color: #fff;
+    background-color: #8249d6;
+    border-color: #8249d6;
+}
+.btn-orange {
+    color: #fff;
+    background-color: #dd4e1e;
+    border-color: #dd4e1e;
+}
+
+.btn-orange:hover {
+    color: #fff;
+    background-color: #f03c02;
+    border-color: #f03c02;
+}
+
+.text-orange {
+    color: #dd4e1e;
+}
