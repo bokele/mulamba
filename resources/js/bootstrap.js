@@ -16,13 +16,13 @@ try {
     require("admin-lte/plugins/summernote/summernote-bs4.min.js");
     require("admin-lte/plugins/summernote/summernote-bs4.min.js");
     require("admin-lte/plugins/sweetalert2/sweetalert2.min.js");
-    // DataTables
-    require("admin-lte/plugins/datatables/jquery.dataTables.min.js");
-    require("admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js");
-    require("admin-lte/plugins/datatables-responsive/js/dataTables.responsive.min.js");
-    require("admin-lte/plugins/datatables-responsive/js/dataTables.responsive.min.js");
-    require("admin-lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js");
-} catch (e) {}
+
+    require('select2/dist/js/select2.min.js');
+
+
+
+
+    } catch (e) {}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

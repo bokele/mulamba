@@ -14,5 +14,4 @@ const toast = Swal.mixin({
 });
 window.toast = toast;
 
-require('datatables.net-bs4');
-require('datatables.net-buttons-bs4');
+

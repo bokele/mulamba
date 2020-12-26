@@ -1,8 +1,6 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 // @import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css");
-// @import url("https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css");
-// @import url("https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap4.min.css");
 
 // Variables
 @import "variables";
@@ -15,7 +13,8 @@ $fa-font-path: "../webfonts";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
-
+@import "~select2/dist/css/select2.min.css";
+@import "~@ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.css";
 .btn-outline-orange:hover {
     color: #fff;
     background-color: #f03c02;

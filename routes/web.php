@@ -65,9 +65,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/admin/car/sold/upload/document', 'CarController@uploadDocument')->name('admin.car.sold.upload.document');
 
     Route::post('/order/create', 'OrderController@store')->name('order.create');
-    Route::get('/order/edit/{id}', 'OrderController@edit')->name('
+    Route::get('/order/edit/{id}', 'OrderController@edit')->name('');
 
-    ');
     Route::get('/order/success', function () {
 
         return view('pages.order.success', ['message' =>
@@ -79,6 +78,36 @@ Route::middleware(['auth', 'verified'])->group(function () {
         "You already ordered this item, check in your order section, you will hear from us shortly"]);
     })->name('order.fail');
 
+
+    Route::get('/admin/plan', 'planController@index')->name('plan.index');
+    Route::get('/admin/get-all-plan', 'planController@getAllPlan')->name('admin.get.all.plan');
+    Route::get('/admin/edit/{id}', 'planController@edit')->name('admin.edit');
+    Route::post('/admin/plan/store', 'planController@store')->name('plan.store');
+    Route::post('/admin/plan/update/{id}', 'planController@update')->name('plan.update');
+    Route::post('/admin/plan/delete/{id}', 'planController@destroy')->name('plan.destroy');
+
+    Route::get('/admin/country', 'CountryController@index')->name('country.index');
+    Route::get('/admin/get-all-country', 'CountryController@getAllCountry')->name('admin.get.all.country');
+    Route::get('/admin/country/edit/{id}', 'CountryController@edit')->name('admin.country.edit');
+    Route::post('/admin/country/store', 'CountryController@store')->name('country.store');
+    Route::post('/admin/country/update/{id}', 'CountryController@update')->name('country.update');
+    Route::post('/admin/country/delete/{id}', 'CountryController@destroy')->name('country.destroy');
+
+    Route::get('/admin/gear-box', 'GearBoxTypeController@index')->name('gear.box.index');
+    Route::get('/admin/get-all-gear-box', 'GearBoxTypeController@getAllGearBox')->name('admin.get.all.gear.box');
+    Route::get('/admin/gear-box/edit/{id}', 'GearBoxTypeController@edit')->name('admin.gear-box.edit');
+    Route::post('/admin/gear-box/store', 'GearBoxTypeController@store')->name('gear.box.store');
+    Route::post('/admin/gear-box/update/{id}', 'GearBoxTypeController@update')->name('gear.box.update');
+    Route::post('/admin/gear-box/delete/{id}', 'GearBoxTypeController@destroy')->name('gear.box.destroy');
+
+
+    Route::get('/get-all-car-model-select', 'CarModelController@getAllCarModelSelect')->name('car.model.select');
+    Route::get('/admin/car-model', 'CarModelController@index')->name('car.model.index');
+    Route::get('/admin/get-all-car-model', 'CarModelController@getAllCarModel')->name('admin.get.all.car.model');
+    Route::get('/admin/car-model/edit/{id}', 'CarModelController@edit')->name('admin.car.model.edit');
+    Route::post('/admin/car-model/store', 'CarModelController@store')->name('car.model.store');
+    Route::post('/admin/car-model/update/{id}', 'CarModelController@update')->name('car.model.update');
+    Route::post('/admin/car-model/delete/{id}', 'CarModelController@destroy')->name('car.model.destroy');
 
     Route::get('/seller/all-cars', 'CarController@index')->name('seller.all.cars');
 

@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/home" class="brand-link">
-        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+    <a href="/" class="brand-link">
+        <img src="{{ asset('logo.jpg') }}" alt="Mulamba logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
         <span class="brand-text font-weight-light"> {{ config('app.name', 'Laravel') }}</span>
     </a>
@@ -11,16 +11,10 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-5 pb-3 mb-3 d-flex">
             <div class="image mt-3">
-                @if(Auth::user()->avatar != "")
-                <img src="/images/profile/{{Auth::user()->avatar}}" alt="User Avatar"
-                    class="img-size-50 img-circle mr-3">
-                @else
-                @if(Auth::user()->gender == 'Male')
-                <img src="/images/male-placeholder.jpeg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                @else
-                <img src="/images/female-placeholder.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                @endif
-                @endif
+
+                <img src="{{asset(Auth::user()->profile_photo_path)}}" alt="User Avatar"
+                    class="img-size-50 img-circle mr-3" />
+
             </div>
             <div class="info mt-3">
                 <a href="#" class="d-block">
@@ -85,7 +79,7 @@
 
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fas fa-cogs"></i>
                         <p>
                             Preferences
                             <i class="fas fa-angle-left right"></i>
@@ -94,13 +88,68 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="{{ route('car.model.index')}}" class="nav-link">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Car model</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('gear.box.index')}}" class="nav-link">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Gear Box</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('country.index')}}" class="nav-link">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Country</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('plan.index')}}" class="nav-link">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Plan</p>
+                            </a>
+                        </li>
+
+
+
+
+
+
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-car"></i>
+                        <p>
+                            Car Management
+                            <i class="fas fa-angle-left right"></i>
+
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+
+
+                        <li class="nav-item">
                             <a href="{{ route('admin.all.cars')}}" class="nav-link">
                                 <i class="fa fa-circle nav-icon"></i>
-                                <p>All Car</p>
+                                <p>Car</p>
                             </a>
-
-
-
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.all.cars')}}" class="nav-link">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Reservation</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.all.cars')}}" class="nav-link">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Rental</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">
@@ -184,54 +233,9 @@
                     </ul>
                 </li>
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-cash-register"></i>
-                        <p>
-                            Plans
-                            <i class="fas fa-angle-left right"></i>
-
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            {{-- <a href="{{route('admin.plan.create')}}" class="nav-link">
-                            <i class="nav-icon fa fa-shopping-cart"></i>
-                            <p>Create</p>
-                            </a> --}}
-                        </li>
-                        {{-- <li class="nav-item">
-                            <a href="{{route('plans')}}" class="nav-link">
-                        <i class="fa fa-hand-holding-usd nav-icon"></i>
-                        <p>Plan</p>
-                        </a>
-                </li> --}}
-                <li class="nav-item">
-                    <a href="/list-invoice" class="nav-link">
-                        <i class="fa fa-file-invoice-dollar nav-icon"></i>
-                        <p>Invoice</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/list-transanction" class="nav-link">
-                        <i class="fa fa-exchange-alt nav-icon"></i>
-                        <p>Transaction</p>
-                    </a>
-                </li>
-
-            </ul>
-            </li>
 
 
-            <li class="nav-item">
-                <a href="/match" class="nav-link">
-                    <i class="nav-icon fa fa-bicycle"></i>
-                    <p>
-                        Match
 
-                    </p>
-                </a>
-            </li>
 
 
 

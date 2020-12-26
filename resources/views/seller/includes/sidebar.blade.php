@@ -77,9 +77,9 @@
 
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fas fa-car"></i>
                         <p>
-                            Preferences
+                            Car Management
                             <i class="fas fa-angle-left right"></i>
 
                         </p>
@@ -88,7 +88,7 @@
                         <li class="nav-item">
                             <a href="{{ route('seller.all.cars')}}" class="nav-link">
                                 <i class="fa fa-circle nav-icon"></i>
-                                <p>All Car</p>
+                                <p>Car</p>
                             </a>
                         </li>
 
