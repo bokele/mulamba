@@ -22,35 +22,35 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-xs-4">
                             <address>
-                                <strong>Billed To:</strong><br>
+                                <strong>Pick up Address:</strong><br>
                                 {{$customer->name}} - {{$customer->email}}<br>
-                                {{$address->city}},
-                                {{$address->state}},
-                                {{$address->country->name}}<br>
+                                {{$pick_up->city}},
+                                {{$pick_up->state}},
+                                {{$pick_up->country->name}}<br>
                                 {{-- <abbr title="Phone">P:</abbr>  --}}
                             </address>
                         </div>
-                        <div class="col-xs-6">
+
+                        <div class="col-xs-4 text-right">
                             <address>
-                                <strong>From:</strong><br>
-                                {{$owner->name}} - {{$owner->email}}<br>
-                                {{-- {{$owner->city}}<br>
-                                {{$owner->state}}<br>
-                                {{$owner->country}}<br> --}}
-                                {{-- <abbr title="Phone">P:</abbr>  --}}
-                            </address>
-                        </div>
-                        {{-- <div class="col-xs-4 text-right">
-                            <address>
+                                <strong>Drop of Address:</strong><br>
                                 {{$customer->name}} - {{$customer->email}}
-                        {{$shipping->city}}<br>
-                        {{$shipping->state}}<br>
-                        {{$shipping->country}}<br>
-                        {{-- <abbr title="Phone">P:</abbr> (123) 345-6789
-                        </address>
-                    </div> --}}
+                                {{$drop_of->city}}<br>
+                                {{$drop_of->state}}<br>
+                                {{$drop_of->country->name}}<br>
+                                {{-- <abbr title="Phone">P:</abbr> (123) 345-6789--}}
+                            </address>
+                        </div>
+                        <div class="col-xs-4">
+                            <address>
+                                <strong>Car Owner:</strong><br>
+                                {{$owner->name}} - {{$owner->email}}<br>
+
+                                {{-- <abbr title="Phone">P:</abbr>  --}}
+                            </address>
+                        </div>
                     </div>
                     <div class="row">
                         {{-- <div class="col-xs-6">
@@ -60,10 +60,22 @@
                                 h.elaine@gmail.com<br>
                             </address>
                         </div> --}}
-                        <div class="col-xs-6 text-right">
+                        <div class="col-xs-4 text-right">
                             <address>
                                 <strong>Order Date:</strong><br>
                                 {{$order->created_at->format('d M,Y H:i:s')}}
+                            </address>
+                        </div>
+                        <div class="col-xs-4 text-right">
+                            <address>
+                                <strong>Start Date:</strong><br>
+                                {{date("d-m-Y", strtotime($booking->start_date))}}
+                            </address>
+                        </div>
+                        <div class="col-xs-4 text-right">
+                            <address>
+                                <strong>End Date:</strong><br>
+                                {{date("d-m-Y", strtotime($booking->end_date))}}
                             </address>
                         </div>
                     </div>
@@ -74,17 +86,17 @@
                                 <table class="table table-bordered" border="1px" style="width:100%">
                                     <thead>
                                         <tr class="line">
-                                            <td><strong>#</strong></td>
-                                            <td class="text-center"><strong>Product</strong></td>
-                                            <td class="text-center"><strong>Sold</strong></td>
-                                            <td class="text-right"><strong>Total</strong></td>
-                                            <td class="text-right"><strong>SUBTOTAL</strong></td>
+                                            <td border="1px"><strong>#</strong></td>
+                                            <td class="text-center" border="1px"><strong>Product</strong></td>
+                                            <td class="text-center" border="1px"><strong>Price</strong></td>
+                                            <td class="text-center" border="1px"><strong>Qt</strong></td>
+                                            <td class="text-right" border="1px"><strong>SUBTOTAL</strong></td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>
+                                            <td border="1px">
 
                                                 {{$car_model->brand}}, {{$car_model->model}},
                                                 , {{$car_model->vehicle_type}}, {{$car_model->year}}<br />
@@ -92,33 +104,33 @@
                                                 {{$car->mileage}} , {{$car->vehicle_gear_box_type}}
 
                                             </td>
-                                            <td class="text-center">
+                                            <td class="text-center" border="1px">
                                                 {{$order->currency}}{{number_format($order->price /100, 2)}}</td>
-                                            <td class="text-center">
-                                                {{$order->currency}}{{number_format($order->propose_price/100, 2)}}</td>
-                                            <td class="text-right">
+                                            <td class="text-center" border="1px">
+                                                {{$order->currency}}{{$booking->days}}</td>
+                                            <td class="text-right" border="1px">
                                                 {{$order->currency}}{{number_format($order->propose_price/100, 2)}}</td>
                                         </tr>
 
 
                                         <tr>
-                                            <td colspan="3"></td>
-                                            <td class="text-right"><strong>Taxes</strong></td>
-                                            <td class="text-right"><strong>N/A</strong></td>
+                                            <td colspan="3" border="1px"></td>
+                                            <td class="text-right" border="1px"><strong>Taxes</strong></td>
+                                            <td class="text-right" border="1px"><strong>N/A</strong></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="3">
+                                            <td colspan="3" border="1px">
                                             </td>
-                                            <td class="text-right"><strong>Balance</strong></td>
-                                            <td class="text-right">
-                                                <strong>{{$order->currency}}{{number_format(($order->price/100) - ($order->propose_price/100), 2)}}</strong>
+                                            <td class="text-right" border="1px"><strong>Balance</strong></td>
+                                            <td class="text-right" border="1px">
+                                                <strong>{{$order->currency}}{{number_format(0,2)}}</strong>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="3">
+                                            <td colspan="3" border="1px">
                                             </td>
-                                            <td class="text-right"><strong>Total</strong></td>
-                                            <td class="text-right">
+                                            <td class="text-right" border="1px"><strong>Total</strong></td>
+                                            <td class="text-right" border="1px">
                                                 <strong>{{$order->currency}}{{number_format($order->propose_price /100, 2)}}</strong>
                                             </td>
                                         </tr>

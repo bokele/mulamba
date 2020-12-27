@@ -259,7 +259,7 @@ class PaymentController extends Controller
             Stripe::setApiKey('sk_test_Bu4YfvdBhbITFzLhXbfGxDV300CE9nXAI0');
 
             $intents = PaymentIntent::create([
-                'description' => 'Payment for buying ' . $type,
+                'description' => 'Payment for  ' . $type,
                 'amount' => $order->propose_price / 100,
                 'currency' =>  'usd',
                 "metadata" => [
@@ -304,40 +304,59 @@ class PaymentController extends Controller
             return redirect('/finance-management/orders')->with('success', 'You already paid');
         } else {
             if (request()->ajax()) {
+                if (\Route::current()->getName() == "payment.booking.payment.create") {
+                    $validator =  Validator::make($request->all(), [
+                        'phone_number' => ['numeric'],
+                        'credit_card_name' => ['required'],
 
-                $validator =  Validator::make($request->all(), [
-                    'phone_number' => ['numeric'],
-                    'shpping_country' => ['required'],
-                    'shpping_full_address' => ['required'],
-                    'shipping_city' => ['required'],
-                    'shpping_state_or_province' => ['required'],
-                    'credit_card_name' => ['required'],
+                    ]);
+                } else {
+                    $validator =  Validator::make($request->all(), [
+                        'phone_number' => ['numeric'],
+                        'shpping_country' => ['required'],
+                        'shpping_full_address' => ['required'],
+                        'shipping_city' => ['required'],
+                        'shpping_state_or_province' => ['required'],
+                        'credit_card_name' => ['required'],
 
+                    ]);
+                }
 
-                ]);
                 if ($validator->fails()) {
                     return response()->json(['errors' => $validator->errors()]);
                 } else {
-                    $address_id = $request['address_id'];
-                    $address = Address::FindorFail($address_id);
-                    $address_shipping = new Address();
-                    $user_auth = Auth::user();
-                    $user = User::findOrFail($user_auth->id);
-                    //creating shipping appress
-                    $address_shipping->country_id = $request['shpping_country'];
-                    $address_shipping->full_address = $request['shpping_full_address'];
-                    $address_shipping->city = $request['shipping_city'];
-                    $address_shipping->state = $request['shpping_state_or_province'];
-                    $address_shipping->street_name = $request['shpping_street_name'];
-                    $address_shipping->home_number = $request['shpping_home_number'];
-                    $address_shipping->home_number = $request['shpping_home_number'];
-                    $address_shipping->save();
-                    //update user information Telephone number added
-                    $user->mobile_number = $request['phone_number'];
-                    $user->address_id = $address->id;
-                    $user->shipping_address = $address_shipping->id;
-                    $user->update();
-                    //update order status
+                    if (\Route::current()->getName() == "payment.booking.payment.create") {
+                        $address_id = $request['address_id'];
+                        $address = Address::FindorFail($address_id);
+                        $user_auth = Auth::user();
+                        $user = User::findOrFail($user_auth->id);
+                        $user->mobile_number = $request['phone_number'];
+                        $user->address_id = $address->id;
+
+                        $user->update();
+                    } else {
+                        $address_id = $request['address_id'];
+                        $address = Address::FindorFail($address_id);
+                        $address_shipping = new Address();
+                        $user_auth = Auth::user();
+                        $user = User::findOrFail($user_auth->id);
+                        //creating shipping appress
+                        $address_shipping->country_id = $request['shpping_country'];
+                        $address_shipping->full_address = $request['shpping_full_address'];
+                        $address_shipping->city = $request['shipping_city'];
+                        $address_shipping->state = $request['shpping_state_or_province'];
+                        $address_shipping->street_name = $request['shpping_street_name'];
+                        $address_shipping->home_number = $request['shpping_home_number'];
+                        $address_shipping->home_number = $request['shpping_home_number'];
+                        $address_shipping->save();
+                        //update user information Telephone number added
+                        $user->mobile_number = $request['phone_number'];
+                        $user->address_id = $address->id;
+                        $user->shipping_address = $address_shipping->id;
+                        $user->update();
+                        //update order status
+
+                    }
 
 
                     return response()->json(['success' => 'ok']);

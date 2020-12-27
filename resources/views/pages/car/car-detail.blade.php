@@ -54,8 +54,10 @@ Car detail
                             <a href="/boutiques/car/{{$car->id}}/propose-price" class="btn btn-outline-orange">Send your
                                 propose
                                 price</a>
-                            @elseif($car->status == 'rental')
-                            <a href="/boutiques/car/{{$car->id}}'/rental" class="btn btn-outline-orange">Let Now</a>';
+                            @elseif($car->status == 'rent')
+                            <a href="/boutiques/car/{{$car->id}}'/rental" class="btn btn-outline-orange">Let Now</a>
+                            <a href="/boutiques/car/{{$car->id}}/booking" class="btn btn-info">Booking it
+                            </a>
                             @endif
                         </div>
 

@@ -136,6 +136,9 @@ Order Payment |
                                 </div>
 
                             </div>
+
+
+
                             <h4 class="mb-3">Shipping address</h4>
                             <div class="row">
 
@@ -294,6 +297,7 @@ Order Payment |
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-md-12">
                                 <label for="credit_card_name" class="form-label">Name on card<span
                                         class="text-danger">*</span></label>

@@ -12,6 +12,7 @@ use App\GearBoxType;
 use App\Mail\Approve;
 use App\Mail\ApproveSeller;
 use App\Mail\OrderShipped;
+use App\Reservation;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

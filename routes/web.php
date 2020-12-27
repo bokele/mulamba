@@ -134,4 +134,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/finance-management/payment', 'PaymentController@index')->name('finance.management.payment');
     Route::get('/finance-management/payment/get-all-payment', 'PaymentController@getAllPayment')->name('finance.management.get.all.payment');
     Route::get('/finance-management/payment/get-payment/{id}/show', 'PaymentController@show')->name('finance.management.get.payment');
+
+
+    //booking
+    Route::get('/boutiques/car/{id}/booking', 'ReservationController@index')->name('boutiques.car.booking');
+    Route::post('/boutiques/car/booking/store', 'ReservationController@store')->name('boutiques.car.booking.store');
+    Route::get('/payment/booking/{id}/{type}', 'ReservationController@bookingOrderInfo')->name('boutiques.car.booking.payment.info');
+    Route::post('/payment/booking/{id}/create', 'PaymentController@create')->name('payment.booking.payment.create');
 });

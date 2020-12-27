@@ -37,6 +37,8 @@
 
             <a href="/boutiques/car/{{$row->id}}/rental" class="btn btn-outline-orange">Let
                 Now</a>
+            <a href="/boutiques/car/{{$row->id}}/booking" class="btn btn-info">Booking
+            </a>
 
             @endif
 
