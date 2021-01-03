@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('page-title')
-All orders
+All payments
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@ All orders
             <div class="card ">
                 <div class="card-header bg-purple">
                     <h3 class="card-title">
-                        <span class="fa fa-list"></span> Order List
+                        <span class="fa fa-list"></span> Payments List
                     </h3>
 
 

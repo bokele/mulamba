@@ -61,7 +61,7 @@
 
                 <div class="row">
                     <div class="col-lg-9 text-center text-lg-left">
-                        <h3>We've created more than <span>200 websites</span> this year!</h3>
+                        <h3>We've selled more than <span>30000 cars</span> this year!</h3>
                         <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                             mollit anim id est laborum.</p>

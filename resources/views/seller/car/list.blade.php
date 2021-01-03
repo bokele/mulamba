@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('page-title')
-All users List
+All cars List
 @endsection
 @section('content')
 <div class="row">
@@ -9,7 +9,7 @@ All users List
             <div class="card card-blue">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <span class="fa fa-list"></span> Categories List
+                        <span class="fa fa-list"></span> cars List
                     </h3>
 
                     <div class="card-tools">
@@ -57,7 +57,7 @@ All users List
 @push('javascripts')
 <script>
     $(document).ready( function () {
-        $('#description_of_feature').summernote();
+        // $('#description_of_feature').summernote();
        $('#brand').select2({
         theme: 'bootstrap4',
         placeholder: "Choose Car brand, model...",
@@ -108,7 +108,7 @@ All users List
 
 
     $('#create_record').click(function(){
-    $('.modal-title').text('Add New User');
+    $('.modal-title').text('Add New Car');
     $('#action_button').text('Save');
     $('.modal-header').addClass('bg-dark');
     $('#modal-icon').html('<i class="fa fa-plus" aria-hidden="true"></i>');

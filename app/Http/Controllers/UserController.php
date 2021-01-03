@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use File;
 use App\User;
+use App\Order;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Hash;
@@ -34,6 +35,14 @@ class UserController extends Controller
         } else if (\Route::current()->getName() == "admin.all.saler") {
 
             return view('admin.users.saler');
+        } else if (\Route::current()->getName() == "user.profile" || \Route::current()->getName() == "user.profile.change.password" || \Route::current()->getName() == "user.profile.change.picture") {
+
+            $user = auth()->user();
+            $user_id = $user->id;
+            $userInfo = User::where('id', $user_id)->get();
+
+
+            return view('profile.profile', ['userInfo' => $userInfo,]);
         }
     }
 
@@ -388,5 +397,64 @@ class UserController extends Controller
         $data->update();
         $data->delete();
         return response()->json(['success' => 'User dalated successfully.']);
+    }
+
+    public function updatePassword(Request $request)
+    {
+
+        $user = auth()->user();
+        $user = User::findOrFail($user->id);
+        $password = Hash::make($request['password']);
+        $this->validate($request, [
+            'old_password' => 'required:users,password,' . $password,
+            'password' => array(
+                'required',
+                'string',
+                'min:8',
+                'confirmed',
+                'regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/'
+
+            ),
+            'password_confirmation' => 'required|string|min:8',
+        ]);
+
+
+        $request->merge(['password' => Hash::make($request['password'])]);
+        $user->password = $request->password;
+        $user->update();
+        Auth::guard('web')->login($user);
+        Auth::guard('web')->logout();
+        return route('login');
+    }
+    public function updateProfilePicture(Request $request)
+    {
+
+        $request->validate([
+            'profil_picture' => 'required|mimes:jpg,jpeg|max:2048',
+        ]);
+
+
+
+        $user = auth()->user();
+        $user = User::findOrFail($user->id);
+        $currentPhoto = $user->avatar;
+        $path = public_path('images/users/');
+
+        $fileName = time() . '.' . $request->profil_picture->extension();;
+
+        $request->profil_picture->move($path, $fileName);
+
+
+        if (file_exists($currentPhoto)) {
+            @unlink($currentPhoto);
+        }
+
+        $user->avatar = '/images/users/' . $fileName;
+
+        $user->update();
+
+
+        return back()
+            ->with('success', 'Your profile picture has been updated.');
     }
 }

@@ -67,13 +67,13 @@
                 <div class="row">
 
                     <div class="col-lg-3 col-md-6 footer-contact">
-                        <h3>Flattern</h3>
+                        <h3>Mulamba</h3>
                         <p>
                             A108 Adam Street <br>
                             New York, NY 535022<br>
                             United States <br><br>
                             <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            <strong>Email:</strong> info@mulamba.com<br>
                         </p>
                     </div>
 
@@ -91,11 +91,11 @@
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Our Services</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Selling car</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Selling Houses</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">PSelling Estate</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Selling Car spair</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
                         </ul>
                     </div>
 
@@ -115,15 +115,15 @@
 
             <div class="mr-md-auto text-center text-md-left">
                 <div class="copyright">
-                    &copy; Copyright <strong><span>Flattern</span></strong>. All Rights Reserved
+                    &copy; Copyright <strong><span>uvatech</span></strong>. All Rights Reserved
                 </div>
-                <div class="credits">
+                {{-- <div class="credits">
                     <!-- All the links in the footer should remain intact. -->
                     <!-- You can delete the links only if you purchased the pro version. -->
                     <!-- Licensing information: https://bootstrapmade.com/license/ -->
                     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flattern-multipurpose-bootstrap-template/ -->
                     Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
+                </div> --}}
             </div>
             <div class="social-links text-center text-md-right pt-3 pt-md-0">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>

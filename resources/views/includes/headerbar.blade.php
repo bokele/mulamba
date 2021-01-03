@@ -38,9 +38,9 @@
 
                     </ul>
                 </li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="pricing.html">Saller</a></li>
+                <li><a href="{{route('about')}}">About</a></li>
+                <li><a href="{{route('services')}}">Services</a></li>
+                <li><a href="{{route('pricing')}}">Pricing</a></li>
                 <li><a href="blog.html">Partner</a></li>
 
                 <li><a href="contact.html">Contact</a></li>

@@ -25,7 +25,23 @@ Route::get('/boutique/car/data', 'BoutiqueController@getAllCar')->name('car.get.
 
 
 
+Route::get('/services', function () {
 
+    return view('pages.services',);
+})->name('services');
+Route::get('/pricing', function () {
+
+    return view('pages.pricing',);
+})->name('pricing');
+
+Route::get('/about', function () {
+
+    return view('pages.about',);
+})->name('about');
+Route::get('/contact', function () {
+
+    return view('pages.contact',);
+})->name('contact');
 
 
 
@@ -141,4 +157,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/boutiques/car/booking/store', 'ReservationController@store')->name('boutiques.car.booking.store');
     Route::get('/payment/booking/{id}/{type}', 'ReservationController@bookingOrderInfo')->name('boutiques.car.booking.payment.info');
     Route::post('/payment/booking/{id}/create', 'PaymentController@create')->name('payment.booking.payment.create');
+
+
+    Route::get('/user/profile', "UserController@index")->name('user.profile');
+    Route::get('/user/profile/password', "UserController@index")->name('user.profile.change.password');
+    Route::get('/user/profile/picture', "UserController@index")->name('user.profile.change.picture');
+    Route::post('/user/profile/general-setting', "UserController@update")->name('user.profile.general.setting');
+    Route::post('/user/profile/change/password', "UserController@updatePassword")->name('user.profile.password');
+    Route::post('/user/profile/change/picture', "UserController@updateProfilePicture")->name('user.profile.picture');
 });

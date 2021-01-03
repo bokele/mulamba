@@ -20,7 +20,7 @@ Car detail
         <div class="row">
             <div class="col-6 col-md-4">
                 <img src="{{asset($car->cover_image)}}" alt="Kodak Brownie Flash B Camera"
-                    class="image-responsive mx-auto d-block" />
+                    class="img-fluid mx-auto d-block" />
                 <h4 class="text-center font-weight-bold text-uppercase text-success ">
 
                     @if ($car->status == 'sale')
